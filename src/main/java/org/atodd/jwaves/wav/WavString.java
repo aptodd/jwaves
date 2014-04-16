@@ -24,13 +24,6 @@ public class WavString {
     private final byte[] bytes;
 
     private WavString(byte[] bytes) {
-        try {
-            System.err.println("Value: <" + new String(bytes, CHAR_ENCODING) + "> Size: <"
-                    + bytes.length + ">");
-        } catch (UnsupportedEncodingException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
         Preconditions.checkArgument(bytes.length <= MAX_CHARS);
         this.length = (byte) bytes.length;
         this.bytes = Arrays.copyOf(bytes, bytes.length);
